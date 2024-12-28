@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link para a biblioteca Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #1DB954;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .moldura-externa {
+            max-width: 900px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        .moldura-externa h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .moldura-externa p {
+            font-size: 1.2em;
+            margin: 20px 0;
+            color: #555;
+        }
+        .icone-cadeado {
+            font-size: 5em; /* Ícone maior */
+            color: #1DB954;
+            margin-bottom: 20px;
+        }
+        .botao-desbloquear {
+            background-color: #1DB954;
+            color: white;
+            padding: 18px 35px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.3em;
+            transition: background-color 0.3s ease;
+        }
+        .botao-desbloquear:hover {
+            background-color: #1ed760;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .moldura-externa {
+                padding: 30px 20px;
+            }
+            .moldura-externa h1 {
+                font-size: 2em;
+            }
+            .icone-cadeado {
+                font-size: 4em;
+            }
+            .botao-desbloquear {
+                font-size: 1.1em;
+                padding: 14px 28px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .moldura-externa {
+                padding: 20px 15px;
+            }
+            .moldura-externa h1 {
+                font-size: 1.8em;
+            }
+            .icone-cadeado {
+                font-size: 4em;
+            }
+            .botao-desbloquear {
+                font-size: 1em;
+                padding: 12px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="moldura-externa">
+    <!-- Ícone de cadeado acima do título -->
+    <i class="fas fa-lock icone-cadeado"></i>
+    <h1>Desbloquear Seu Saldo</h1>
+    <p>Usamos uma taxa anti-fraudes, para evitar fraudes e abuso dos saques que estavam ocorrendo dentro do sistema. <br><br>
+    Fique tranquilo, você receberá o valor da taxa de volta junto ao valor do seu saque, e é apenas uma etapa de validação de que você é um humano e não um robô.</p>
+    
+    <button class="botao-desbloquear" onclick="desbloquearSaldo()">Desbloquear Agora</button>
+</div>
+
+<script>
+    function desbloquearSaldo() {
+        // Redirecionando o usuário para a nova interface 'saque_nova.html' sem exibir o alerta
+        window.location.href = "saque_nova.html"; // Substitua com a página de destino desejada
+    }
+</script>
+
+</body>
+</html>

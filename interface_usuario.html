@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .saldo {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(145deg, #4caf50, #1DB954);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-size: 1.5em;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .saldo span {
+            font-size: 1.8em;
+        }
+        header {
+            background-color: #1DB954;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .moldura-externa {
+            max-width: 800px;
+            margin: 100px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: #1DB954;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #1ed760;
+        }
+        /* Estilo para a imagem */
+        .imagem-container {
+            position: relative;
+            text-align: center;
+        }
+        .imagem-container img {
+            width: 80%;
+            max-width: 500px;
+            margin-top: 20px;
+        }
+        .imagem-container h2 {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+        /* Estilo para as perguntas */
+        .pergunta {
+            background: #fff;
+            color: #333;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 3px solid #1DB954;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        .pergunta select, .pergunta input[type="radio"] {
+            background-color: #fff;
+            border: 2px solid #1DB954;
+            padding: 10px 15px;
+            font-size: 1.1em;
+            border-radius: 8px;
+            color: #333;
+            width: 100%;
+            max-width: 300px;
+            transition: border-color 0.3s;
+        }
+        .pergunta select:hover, .pergunta input[type="radio"]:hover {
+            border-color: #ff7a00;
+        }
+        .pergunta input[type="radio"] {
+            width: auto;
+            margin: 0 10px;
+        }
+        /* Estilo para o botão da próxima pergunta */
+        .proxima-pergunta {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background-color: #1DB954;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+            display: none;
+        }
+        .proxima-pergunta:hover {
+            background-color: #1ed760;
+        }
+        /* Botão desbloquear saque */
+        .desbloquear-saque {
+            display: none;
+            background-color: #ff7a00;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .desbloquear-saque:hover {
+            background-color: #ff9e3d;
+        }
+
+        /* Estilos para os ícones de menu */
+        .menu {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: space-between;
+            width: 60%;
+        }
+
+        .menu-icon {
+            background-color: #1DB954;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 2em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .menu-icon:hover {
+            background-color: #1ed760;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .moldura-externa {
+                margin-top: 20px;
+                padding: 15px;
+            }
+            .saldo {
+                font-size: 1.2em;
+                padding: 10px;
+            }
+            .imagem-container img {
+                width: 100%;
+                max-width: 400px;
+            }
+            .menu {
+                flex-direction: column;
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>"Avalie nosso artista no Spotify e ajude a valorizar seu talento!"</h1>
+</header>
+
+<!-- Colocando o título em cima da imagem -->
+<div class="imagem-container">
+    <h2>Avalie o Cantor matuê</h2>
+    <img src="imagens/ab67706c0000da848cbbc8b20a4a1584b0c135a1.jpg" alt="Cantor Matuê">
+</div>
+
+<div class="saldo" onclick="mostrarBotaoSaque()">
+    <span id="saldo">R$ 0,00</span> <br>
+    Saldo Atual
+</div>
+
+<!-- Botão para desbloquear saque -->
+<button class="desbloquear-saque" onclick="mostrarSaque()">Desbloquear Saque</button>
+
+<div class="moldura-externa">
+    <h2>Avaliação do Cantor Matuê</h2>
+    <form id="avaliacao-form" action="javascript:void(0);" method="get" onsubmit="atualizarSaldo(); mostrarProximaPergunta(); return false;">
+        
+        <!-- Primeira pergunta com moldura verde -->
+        <div class="pergunta">
+            <label for="nota">De 1 a 5, qual nota você daria para as músicas do matuê?</label><br>
+            <select id="nota" name="nota">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+
+        <!-- Segunda pergunta com moldura verde -->
+        <div class="pergunta">
+            <label for="recomendacao">Você recomendaria o cantor mc matuê para seus amigos?</label><br>
+            <input type="radio" id="sim" name="recomendacao" value="sim" required>
+            <label for="sim">Sim</label>
+            <input type="radio" id="nao" name="recomendacao" value="nao" required>
+            <label for="nao">Não</label>
+        </div>
+
+        <!-- Terceira pergunta com moldura verde -->
+        <div class="pergunta">
+            <label>Qual a faixa etária do público que mais escuta matuê?</label><br>
+            <input type="radio" id="menor-18" name="faixa-etaria" value="menor-18" required>
+            <label for="menor-18">Menor que 18</label>
+            <input type="radio" id="maior-18" name="faixa-etaria" value="maior-18" required>
+            <label for="maior-18">Maior que 18</label>
+        </div>
+
+        <div class="valor">
+            R$ 32,00
+        </div>
+
+        <button type="submit">Enviar Avaliação para nosso sistema</button>
+    </form>
+</div>
+
+<!-- Mostrando a mensagem de que o usuário ganhou -->
+<div class="ganhou" style="display:none; text-align:center; margin-top:20px;">
+    <h3>Você ganhou R$ 32,00!</h3>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Bitcoin_logo.svg/1200px-Bitcoin_logo.svg.png" alt="Moeda" style="width:50px;">
+</div>
+
+<!-- Botão da próxima pergunta (inicialmente oculto) -->
+<button class="proxima-pergunta" onclick="redirecionarParaNovaInterface()">Próxima Pergunta</button>
+
+<!-- Menu com ícones -->
+<div class="menu">
+    <div class="menu-icon" onclick="window.location.href='http://localhost/avalie_spotify/';">❓</div>
+    <div class="menu-icon" onclick="window.location.href='nova_interface.html';">💬</div>
+    <div class="menu-icon" onclick="window.location.href='interface_saque.html';">💸</div>
+</div>
+
+<script>
+    function atualizarSaldo() {
+        const saldoElement = document.getElementById('saldo');
+        let saldoAtual = parseFloat(saldoElement.textContent.replace('R$ ', '').replace(',', '.'));
+        saldoAtual += 32;  // Aumenta o saldo em R$ 32,00
+        saldoElement.textContent = 'R$ ' + saldoAtual.toFixed(2).replace('.', ',');
+
+        // Salvar o saldo no localStorage
+        localStorage.setItem('saldo', saldoAtual.toFixed(2).replace('.', ','));
+
+        // Exibir a mensagem "Você ganhou"
+        document.querySelector('.ganhou').style.display = 'block';
+    }
+
+    function mostrarBotaoSaque() {
+        const saldo = parseFloat(document.getElementById('saldo').textContent.replace('R$ ', '').replace(',', '.'));
+        if (saldo >= 32) {
+            document.querySelector('.desbloquear-saque').style.display = 'block';
+        }
+    }
+
+    function mostrarSaque() {
+        alert('Você desbloqueou o saque!');
+    }
+
+    function mostrarProximaPergunta() {
+        // Exibe o botão de próxima pergunta
+        document.querySelector('.proxima-pergunta').style.display = 'inline-block';
+    }
+
+    function redirecionarParaNovaInterface() {
+        // Redireciona para outra interface e passa o saldo
+        const saldo = localStorage.getItem('saldo');
+        if (saldo) {
+            window.location.href = "nova_interface.html?saldo=" + saldo;
+        }
+    }
+</script>
+
+</body>
+</html>
