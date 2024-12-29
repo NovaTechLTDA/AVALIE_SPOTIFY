@@ -11,6 +11,7 @@
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
         .header {
             text-align: center;
@@ -73,7 +74,6 @@
             border: 1px solid #ddd;
             color: green;
             font-size: 26px;
-            /* Maior para telas grandes */
             padding: 50px;
             margin-top: 30px;
             display: flex;
@@ -83,29 +83,23 @@
             border-radius: 5px;
             margin: 20px;
             flex-wrap: wrap;
-            /* Permite que o conteúdo seja ajustado quando necessário */
         }
         .spotify-logo {
             width: 80px;
-            /* Ícone maior */
             height: 80px;
             margin-right: 20px;
-            /* Espaço entre o ícone e o texto */
         }
         .spotify-text {
             font-size: 26px;
-            /* Tamanho maior para o texto */
             color: black;
-            /* Texto em preto */
             line-height: 1.4;
         }
         .spotify-title {
             color: green;
-            /* Frase "Você está adquirindo" em verde */
             font-weight: bold;
         }
-        /* Responsabilidade: Ajustes para telas menores */
-        @media (max-width: 1024px) {
+        /* Responsividade para telas pequenas */
+        @media (max-width: 1280px) {
             .spotify-box {
                 font-size: 22px;
                 padding: 40px;
@@ -113,13 +107,12 @@
             .spotify-logo {
                 width: 70px;
                 height: 70px;
-                margin-right: 20px;
             }
             .spotify-text {
                 font-size: 22px;
             }
         }
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             .spotify-box {
                 font-size: 20px;
                 padding: 30px;
@@ -127,28 +120,39 @@
             .spotify-logo {
                 width: 60px;
                 height: 60px;
-                margin-right: 15px;
             }
             .spotify-text {
                 font-size: 20px;
             }
         }
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
             .spotify-box {
                 font-size: 18px;
-                padding: 20px;
+                padding: 25px;
             }
             .spotify-logo {
                 width: 50px;
                 height: 50px;
-                margin-right: 10px;
             }
             .spotify-text {
                 font-size: 18px;
             }
         }
-        /* Estilos para o quadrado branco de dados cadastrais */
-        .data-box {
+        @media (max-width: 480px) {
+            .spotify-box {
+                font-size: 16px;
+                padding: 15px;
+            }
+            .spotify-logo {
+                width: 40px;
+                height: 40px;
+            }
+            .spotify-text {
+                font-size: 16px;
+            }
+        }
+        /* Estilos para os quadrados de dados */
+        .data-box, .payment-box, .validation-box {
             background-color: white;
             padding: 30px;
             margin-top: 30px;
@@ -159,91 +163,28 @@
             max-width: 500px;
             margin: 20px auto;
         }
-        .data-box h3 {
+        .data-box h3, .payment-box h3, .validation-box h3 {
             color: black;
-            /* Título "Dados Cadastrais" em preto */
+            font-weight: bold;
             margin-bottom: 10px;
             display: inline-flex;
-            /* Agora o título e o número ficam alinhados horizontalmente */
             align-items: center;
         }
-        /* Estilo para o círculo verde com número */
-        .data-box h3 span {
+        .data-box h3 span, .payment-box h3 span {
             background-color: green;
-            /* Círculo verde */
             color: white;
-            /* Número em branco */
             font-weight: bold;
             padding: 5px 10px;
             border-radius: 50%;
             margin-right: 10px;
-            /* Espaço entre o número e o título */
             font-size: 20px;
-            /* Tamanho do número */
         }
-        .data-box p {
+        .data-box p, .payment-box p {
             font-size: 14px;
             color: #333;
             margin-bottom: 20px;
         }
-        .data-box label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        .data-box input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        /* Estilos para o quadrado de Dados de Pagamento */
-        .payment-box {
-            background-color: white;
-            padding: 30px;
-            margin-top:30px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            font-size: 18px;
-            text-align: left;
-            max-width: 500px;
-            margin: 20px auto;
-        }
-        .payment-box h3 {
-            color: black;
-            /* Título "Dados do Pagamento" em preto */
-            margin-bottom: 10px;
-            display: inline-flex;
-            /* Agora o título e o número ficam alinhados horizontalmente */
-            align-items: center;
-        }
-        /* Estilo para o círculo verde com número */
-        .payment-box h3 span {
-            background-color: green;
-            /* Círculo verde */
-            color: white;
-            /* Número em branco */
-            font-weight: bold;
-            padding: 5px 10px;
-            border-radius: 50%;
-            margin-right: 10px;
-            /* Espaço entre o número e o título */
-            font-size: 20px;
-            /* Tamanho do número */
-        }
-        .payment-box p {
-            font-size: 14px;
-            color: #333;
-            margin-bottom: 20px;
-        }
-        .payment-box label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        .payment-box input {
+        .data-box input, .payment-box input {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
@@ -258,10 +199,8 @@
         }
         .payment-box .pix-name {
             color: green;
-            /* Nome "Pix" em verde */
             font-size: 16px;
         }
-        /* Estilos para o botão Pix */
         .pix-button {
             display: inline-block;
             padding: 10px 20px;
@@ -275,7 +214,6 @@
             text-decoration: none;
             margin-top: 10px;
         }
-        /* Legenda "Pague no Pix" */
         .pay-pix-subtitle {
             color: black;
             font-size: 16px;
@@ -286,20 +224,17 @@
             color: green;
             font-weight: bold;
         }
-        /* Ícone de relógio */
         .clock-icon {
             width: 18px;
             height: 18px;
             margin-left: 5px;
         }
-        /* Frase abaixo do botão */
         .payment-info {
             font-size: 12px;
             color: #333;
             margin-top: 15px;
             text-align: center;
         }
-        /* Novo conteúdo abaixo */
         .payment-box .additional-text {
             margin-top: 20px;
             font-size: 14px;
@@ -308,24 +243,6 @@
         }
         .payment-box .additional-text span {
             font-weight: bold;
-        }
-        /* Novo quadrado de validação */
-        .validation-box {
-            background-color: white;
-            padding: 30px;
-            margin-top: 30px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            font-size: 18px;
-            text-align: left;
-            max-width: 500px;
-            margin: 20px auto;
-        }
-        .validation-box h3 {
-            font-size: 16px;
-            font-weight: bold;
-            color: black;
-            margin-bottom: 15px;
         }
         .validation-box .left {
             display: inline-block;
@@ -356,8 +273,6 @@
             margin-top: 20px;
             cursor: pointer;
         }
-
-        /* Estilos para a interface de processando */
         .processing-box {
             text-align: center;
             margin-top: 50px;

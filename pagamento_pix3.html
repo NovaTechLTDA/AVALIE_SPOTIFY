@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pague o Pix</title>
-    <!-- Favicon de diferentes tamanhos -->
     <link rel="icon" href="https://i.pinimg.com/736x/4f/d0/7b/4fd07b43f96126a4d69609c60cc92121.jpg" sizes="16x16" type="image/jpeg">
     <link rel="icon" href="https://i.pinimg.com/736x/4f/d0/7b/4fd07b43f96126a4d69609c60cc92121.jpg" sizes="32x32" type="image/jpeg">
     <link rel="icon" href="https://i.pinimg.com/736x/4f/d0/7b/4fd07b43f96126a4d69609c60cc92121.jpg" sizes="48x48" type="image/jpeg">
@@ -23,14 +22,17 @@
         .container {
             text-align: center;
             padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         h1 {
             color: green;
-            font-size: 36px;
+            font-size: 2rem;
             margin-bottom: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-wrap: wrap;
         }
         h1 img {
             max-width: 60px; /* Aumentei o tamanho do ícone */
@@ -46,13 +48,13 @@
             text-align: left;
         }
         .instruction-box h3 {
-            font-size: 24px;
+            font-size: 1.5rem;
             color: green;
             font-weight: bold;
             margin-bottom: 20px;
         }
         .instruction-box p {
-            font-size: 16px;
+            font-size: 1rem;
             color: #333;
             margin-bottom: 10px;
         }
@@ -62,13 +64,13 @@
         .waiting {
             color: green;
             font-weight: bold;
-            font-size: 18px;
+            font-size: 1.1rem;
             margin-top: 20px;
         }
         .payment-success {
             color: blue;
             font-weight: bold;
-            font-size: 20px;
+            font-size: 1.2rem;
             margin-top: 20px;
         }
         .contact-box {
@@ -80,13 +82,13 @@
             margin: 20px auto;
         }
         .contact-box h3 {
-            font-size: 20px;
+            font-size: 1.1rem;
             color: green;
             font-weight: bold;
             margin-bottom: 15px;
         }
         .contact-box p {
-            font-size: 14px;
+            font-size: 1rem;
             color: #333;
         }
         .contact-box .secure-info {
@@ -110,7 +112,7 @@
             max-width: 80px;
         }
         .footer {
-            font-size: 12px;
+            font-size: 0.8rem;
             color: #333;
             text-align: center;
             margin-top: 20px;
@@ -138,38 +140,60 @@
             border: 1px solid #ddd;
             color: green;
             font-weight: bold;
-            font-size: 18px;
+            font-size: 1rem;
             z-index: 10;
         }
 
         .pix-key-box {
             margin-top: 10px;
-            font-size: 16px;
+            font-size: 1rem;
             font-weight: bold;
             color: #333;
         }
         .copy-icon {
             cursor: pointer;
             margin-left: 10px;
-            font-size: 24px; /* Aumentando o ícone */
+            font-size: 1.5rem;
         }
 
         /* Responsividade */
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 768px) {
             h1 {
-                font-size: 28px;
+                font-size: 1.5rem;
             }
-            .instruction-box {
+            .instruction-box, .contact-box {
                 padding: 20px;
+                max-width: 100%;
             }
             .pix-key-box {
-                font-size: 14px;
+                font-size: 1rem;
             }
             .qrcode-img {
                 max-width: 150px;
             }
             .copy-icon {
-                font-size: 30px; /* Ícone ainda maior em telas pequenas */
+                font-size: 2rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.2rem;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .instruction-box, .contact-box {
+                padding: 15px;
+                max-width: 100%;
+            }
+            .pix-key-box {
+                font-size: 0.9rem;
+            }
+            .qrcode-img {
+                max-width: 120px;
+            }
+            .copy-icon {
+                font-size: 2.5rem;
             }
         }
 
@@ -183,7 +207,7 @@
             color: white;
             padding: 8px 16px;
             border-radius: 5px;
-            font-size: 14px;
+            font-size: 0.9rem;
             display: none;
         }
 
@@ -195,11 +219,11 @@
             border: 1px solid #ddd;
             max-width: 600px;
             margin: 20px auto;
-            font-size: 14px;
+            font-size: 1rem;
             color: #333;
         }
         .faq-box h3 {
-            font-size: 18px;
+            font-size: 1.1rem;
             color: green;
             font-weight: bold;
             margin-bottom: 10px;
@@ -298,15 +322,12 @@
                     message.style.display = 'none';
                 }, 3000);
 
+                // Garantir que redirecione para pagamento_aprovado.html após 3 minutos
                 setTimeout(function() {
-                    window.location.href = 'pagamento_pix2.html'; // Redireciona para pagamento_pix2 após 10 segundos
-                }, 10000);
-
-                setTimeout(function() {
-                    window.location.href = 'pagamento_aprovado.html'; // Redireciona para pagamento_aprovado após 5 minutos
-                }, 300000);
+                    window.location.href = 'pagamento_aprovado.html'; // Redireciona para pagamento_aprovado após 3 minutos
+                }, 180000);  // 3 minutos (180.000 milissegundos)
             }, function() {
-                alert('Erro ao copiar chave PIX');
+                alert('Erro ao copiar a chave PIX');
             });
         }
 
@@ -319,9 +340,14 @@
                     message.style.display = 'none';
                 }, 3000);
             }, function() {
-                alert('Erro ao copiar e-mail');
+                alert('Erro ao copiar o e-mail');
             });
         }
+
+        // Definir redirecionamento após 3 minutos
+        setTimeout(function() {
+            window.location.href = 'pagamento_aprovado.html'; // Redireciona para pagamento_aprovado após 3 minutos
+        }, 180000);  // 3 minutos (180.000 milissegundos)
     </script>
 </body>
 </html>

@@ -6,12 +6,23 @@
     <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/018/930/693/non_2x/spotify-app-logo-spotify-icon-transparent-free-png.png" type="image/png" sizes="32x32">
     <title>Avaliação Spotify</title>
     <style>
+        /* Global */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f5f5f5;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
+        
+        /* Container geral para conteúdo */
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Estilos do saldo */
         .saldo {
             position: fixed;
             top: 20px;
@@ -23,25 +34,34 @@
             font-size: 1.5em;
             font-weight: bold;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .saldo span {
             font-size: 1.8em;
         }
+
+        /* Estilos de header */
         header {
             background-color: #1DB954;
             color: white;
             text-align: center;
             padding: 20px;
         }
+        
+        /* Moldura externa */
         .moldura-externa {
             max-width: 800px;
-            margin: 100px auto;
+            margin: 50px auto;
             background-color: white;
             padding: 20px;
             border-radius: 12px;
             text-align: center;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         }
+        
+        /* Botões */
         button {
             background-color: #1DB954;
             color: white;
@@ -57,6 +77,8 @@
         button:hover {
             background-color: #1ed760;
         }
+        
+        /* Imagem e título */
         .imagem-container {
             text-align: center;
         }
@@ -64,6 +86,7 @@
             width: 80%;
             max-width: 500px;
             margin-top: 20px;
+            border-radius: 8px;
         }
         .imagem-container h2 {
             position: absolute;
@@ -75,6 +98,8 @@
             padding: 10px 20px;
             border-radius: 8px;
         }
+
+        /* Perguntas */
         .pergunta {
             background: #fff;
             color: #333;
@@ -87,6 +112,7 @@
             margin-bottom: 20px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         }
+        
         .pergunta select, .pergunta input[type="radio"] {
             background-color: #fff;
             border: 2px solid #1DB954;
@@ -98,13 +124,17 @@
             max-width: 300px;
             transition: border-color 0.3s;
         }
+
         .pergunta select:hover, .pergunta input[type="radio"]:hover {
             border-color: #ff7a00;
         }
+
         .pergunta input[type="radio"] {
             width: auto;
             margin: 0 10px;
         }
+        
+        /* Botão "Próxima Pergunta" */
         .proxima-pergunta {
             position: fixed;
             right: 20px;
@@ -122,6 +152,8 @@
         .proxima-pergunta:hover {
             background-color: #1ed760;
         }
+
+        /* Menu */
         .menu {
             position: fixed;
             bottom: 20px;
@@ -143,54 +175,102 @@
         .menu-icon:hover {
             background-color: #1ed760;
         }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .imagem-container img {
+                width: 100%;
+                max-width: none;
+            }
+            .moldura-externa {
+                padding: 15px;
+            }
+            .saldo {
+                top: 15px;
+                right: 15px;
+                padding: 12px 18px;
+            }
+            .menu {
+                width: 80%;
+            }
+            .menu-icon {
+                font-size: 1.5em;
+            }
+            header h1 {
+                font-size: 1.5em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .saldo {
+                font-size: 1em;
+                padding: 10px 15px;
+            }
+            .pergunta {
+                font-size: 1em;
+                padding: 15px;
+            }
+            button {
+                font-size: 1em;
+                padding: 12px 24px;
+            }
+            header h1 {
+                font-size: 1.2em;
+            }
+            .menu-icon {
+                font-size: 1.2em;
+            }
+        }
     </style>
 </head>
 <body>
 <header>
     <h1>"Avalie nosso artista no Spotify e ajude a valorizar seu talento!"</h1>
 </header>
-<div class="imagem-container">
-    <h2>Avalie o mc Tutu</h2>
-    <img src="https://billboard-com-br.s3.amazonaws.com/wp-content/uploads/2024/10/30152301/MC-Tuto.webp" alt="Cantor mc Tutu">
-</div>
-<div class="saldo" onclick="mostrarBotaoSaque()">
-    <span id="saldo">R$ 84,00</span><br> Saldo Atual
-</div>
-<div class="moldura-externa">
-    <h2>Avaliação do Cantor mc Tutu</h2>
-    <form id="avaliacao-form" action="javascript:void(0);" method="get" onsubmit="atualizarSaldo(); mostrarProximaPergunta(); desabilitarEnvio(); return false;">
-        <div class="pergunta">
-            <label for="nota">De 1 a 5, qual nota você daria para as músicas do mc Tutu?</label><br>
-            <select id="nota" name="nota">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-        </div>
-        <div class="pergunta">
-            <label for="recomendacao">Você recomendaria o cantor mc Tutu para seus amigos?</label><br>
-            <input type="radio" id="sim" name="recomendacao" value="sim" required> 
-            <label for="sim">Sim</label>
-            <input type="radio" id="nao" name="recomendacao" value="nao" required>
-            <label for="nao">Não</label>
-        </div>
-        <div class="pergunta">
-            <label>Qual a faixa etária do público que mais escuta mc Tutu?</label><br>
-            <input type="radio" id="menor-18" name="faixa-etaria" value="menor-18" required> 
-            <label for="menor-18">Menor que 18</label>
-            <input type="radio" id="maior-18" name="faixa-etaria" value="maior-18" required> 
-            <label for="maior-18">Maior que 18</label>
-        </div>
-        <button id="submit-button" type="submit">Enviar Avaliação para nosso sistema</button>
-    </form>
-</div>
-<button class="proxima-pergunta" onclick="redirecionarParaNovaInterface()">Próxima Pergunta</button>
-<div class="menu">
-    <div class="menu-icon" onclick="window.location.href='http://localhost/avalie_spotify/';">❓</div>
-    <div class="menu-icon" onclick="window.location.href='nova_interface_em_branco.html';">💬</div>
-    <div class="menu-icon" onclick="window.location.href='interface_saque.html';">💸</div>
+<div class="container">
+    <div class="imagem-container">
+        <h2>Avalie o mc Tutu</h2>
+        <img src="https://billboard-com-br.s3.amazonaws.com/wp-content/uploads/2024/10/30152301/MC-Tuto.webp" alt="Cantor mc Tutu">
+    </div>
+    <div class="saldo" onclick="mostrarBotaoSaque()">
+        <span id="saldo">R$ 84,00</span><br> Saldo Atual
+    </div>
+    <div class="moldura-externa">
+        <h2>Avaliação do Cantor mc Tutu</h2>
+        <form id="avaliacao-form" action="javascript:void(0);" method="get" onsubmit="atualizarSaldo(); mostrarProximaPergunta(); desabilitarEnvio(); return false;">
+            <div class="pergunta">
+                <label for="nota">De 1 a 5, qual nota você daria para as músicas do mc Tutu?</label><br>
+                <select id="nota" name="nota">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div class="pergunta">
+                <label for="recomendacao">Você recomendaria o cantor mc Tutu para seus amigos?</label><br>
+                <input type="radio" id="sim" name="recomendacao" value="sim" required> 
+                <label for="sim">Sim</label>
+                <input type="radio" id="nao" name="recomendacao" value="nao" required>
+                <label for="nao">Não</label>
+            </div>
+            <div class="pergunta">
+                <label>Qual a faixa etária do público que mais escuta mc Tutu?</label><br>
+                <input type="radio" id="menor-18" name="faixa-etaria" value="menor-18" required> 
+                <label for="menor-18">Menor que 18</label>
+                <input type="radio" id="maior-18" name="faixa-etaria" value="maior-18" required> 
+                <label for="maior-18">Maior que 18</label>
+            </div>
+            <button id="submit-button" type="submit">Enviar Avaliação para nosso sistema</button>
+        </form>
+    </div>
+    <button class="proxima-pergunta" onclick="redirecionarParaNovaInterface()">Próxima Pergunta</button>
+    <div class="menu">
+        <div class="menu-icon" onclick="window.location.href='http://localhost/avalie_spotify/';">❓</div>
+        <div class="menu-icon" onclick="window.location.href='nova_interface_em_branco.html';">💬</div>
+        <div class="menu-icon" onclick="window.location.href='interface_saque.html';">💸</div>
+    </div>
 </div>
 
 <script>

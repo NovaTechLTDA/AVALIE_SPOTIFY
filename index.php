@@ -28,6 +28,7 @@
             align-items: center;
             width: 100%;
             height: 100%;
+            padding: 10px;
         }
 
         /* Caixa do Formulário com Moldura Branca */
@@ -39,7 +40,7 @@
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
             text-align: center;
             max-width: 400px;
-            width: 90%;
+            width: 100%;
             border: 2px solid #00c853; /* Moldura verde */
         }
 
@@ -52,8 +53,8 @@
         }
 
         .spotify-logo img {
-            width: 150px;  /* Ícone maior */
-            height: 150px;
+            width: 120px;  /* Ícone maior e responsivo */
+            height: 120px;
             margin-bottom: 20px;
         }
 
@@ -62,6 +63,7 @@
             margin: 0 0 10px;
             font-size: 2.5em;
             color: #00c853;
+            word-wrap: break-word;
         }
 
         /* Subtítulo */
@@ -120,6 +122,66 @@
 
         .footer a:hover {
             text-decoration: underline;
+        }
+
+        /* Media Queries para tornar a interface mais responsiva */
+        @media (max-width: 768px) {
+            .form-box {
+                padding: 30px;
+                width: 90%;
+            }
+
+            .spotify-logo img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .form-box h1 {
+                font-size: 2em;
+            }
+
+            .form-box h2 {
+                font-size: 1em;
+            }
+
+            input[type="email"] {
+                font-size: 1em;
+            }
+
+            button {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .form-box {
+                padding: 20px;
+            }
+
+            .spotify-logo img {
+                width: 80px;
+                height: 80px;
+            }
+
+            .form-box h1 {
+                font-size: 1.5em;
+            }
+
+            .form-box h2 {
+                font-size: 0.9em;
+            }
+
+            input[type="email"] {
+                font-size: 0.9em;
+            }
+
+            button {
+                font-size: 0.9em;
+            }
+
+            .footer {
+                font-size: 0.7em;
+            }
         }
     </style>
 </head>

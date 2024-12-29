@@ -5,12 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://i.pinimg.com/736x/4f/d0/7b/4fd07b43f96126a4d69609c60cc92121.jpg" type="image/jpeg"> <!-- Atualização do ícone -->
     <style>
+        /* Reset de estilos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f5f5f5;
             margin: 0;
             padding: 0;
         }
+
         .saldo {
             position: fixed;
             top: 20px;
@@ -23,15 +31,18 @@
             font-weight: bold;
             cursor: pointer;
         }
+
         .saldo span {
             font-size: 1.8em;
         }
+
         header {
             background-color: #1DB954;
             color: white;
             text-align: center;
             padding: 20px;
         }
+
         .moldura-externa {
             max-width: 800px;
             margin: 100px auto;
@@ -41,6 +52,7 @@
             text-align: center;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         }
+
         button {
             background-color: #1DB954;
             color: white;
@@ -53,17 +65,22 @@
             display: inline-block;
             margin-top: 20px;
         }
+
         button:hover {
             background-color: #1ed760;
         }
+
         .imagem-container {
             text-align: center;
+            margin-bottom: 20px;
         }
+
         .imagem-container img {
             width: 80%;
             max-width: 500px;
             margin-top: 20px;
         }
+
         .imagem-container h2 {
             position: absolute;
             top: 10px;
@@ -74,6 +91,7 @@
             padding: 10px 20px;
             border-radius: 8px;
         }
+
         .pergunta {
             background: #fff;
             color: #333;
@@ -86,6 +104,7 @@
             margin-bottom: 20px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         }
+
         .pergunta select, .pergunta input[type="radio"] {
             background-color: #fff;
             border: 2px solid #1DB954;
@@ -97,13 +116,16 @@
             max-width: 300px;
             transition: border-color 0.3s;
         }
+
         .pergunta select:hover, .pergunta input[type="radio"]:hover {
             border-color: #ff7a00;
         }
+
         .pergunta input[type="radio"] {
             width: auto;
             margin: 0 10px;
         }
+
         .proxima-pergunta {
             position: fixed;
             right: 20px;
@@ -118,9 +140,11 @@
             transition: background-color 0.3s ease;
             display: none;
         }
+
         .proxima-pergunta:hover {
             background-color: #1ed760;
         }
+
         .menu {
             position: fixed;
             bottom: 20px;
@@ -130,6 +154,7 @@
             justify-content: space-between;
             width: 60%;
         }
+
         .menu-icon {
             background-color: #1DB954;
             color: white;
@@ -139,8 +164,77 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
+
         .menu-icon:hover {
             background-color: #1ed760;
+        }
+
+        /* Responsividade para dispositivos móveis */
+        @media (max-width: 768px) {
+            .moldura-externa {
+                margin: 50px auto;
+                padding: 10px;
+                width: 90%;
+            }
+
+            .imagem-container img {
+                width: 100%;
+                max-width: none;
+            }
+
+            header h1 {
+                font-size: 1.5em;
+            }
+
+            .saldo {
+                font-size: 1.2em;
+                top: 10px;
+                right: 10px;
+                padding: 10px;
+            }
+
+            .pergunta select, .pergunta input[type="radio"] {
+                max-width: 100%;
+            }
+
+            .menu {
+                width: 80%;
+            }
+
+            .menu-icon {
+                font-size: 1.5em;
+                padding: 12px;
+            }
+
+            .proxima-pergunta {
+                font-size: 1.1em;
+                right: 10px;
+                bottom: 10px;
+                padding: 12px 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .saldo {
+                font-size: 1.1em;
+                padding: 8px 15px;
+            }
+
+            .proxima-pergunta {
+                font-size: 1em;
+                right: 10px;
+                bottom: 10px;
+                padding: 10px 20px;
+            }
+
+            .menu {
+                width: 70%;
+            }
+
+            .menu-icon {
+                font-size: 1.2em;
+                padding: 10px;
+            }
         }
     </style>
 </head>

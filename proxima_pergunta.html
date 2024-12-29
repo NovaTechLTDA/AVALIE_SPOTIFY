@@ -38,13 +38,15 @@
     }
 
     .moldura-externa {
-      max-width: 800px;
+      max-width: 100%;
       margin: 100px auto;
       background-color: white;
       padding: 20px;
       border-radius: 12px;
       text-align: center;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      width: 95%;
+      box-sizing: border-box;
     }
 
     button {
@@ -67,12 +69,14 @@
     .imagem-container {
       position: relative;
       text-align: center;
+      margin-top: 20px;
     }
 
     .imagem-container img {
-      width: 80%;
+      width: 100%;
       max-width: 500px;
       margin-top: 20px;
+      height: auto;
     }
 
     .imagem-container h2 {
@@ -163,6 +167,71 @@
 
     .menu-icon:hover {
       background-color: #1ed760;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.5em;
+      }
+
+      .saldo {
+        font-size: 1.2em;
+        padding: 10px 15px;
+      }
+
+      .moldura-externa {
+        margin-top: 20px;
+        padding: 15px;
+      }
+
+      .pergunta {
+        font-size: 1.1em;
+      }
+
+      .imagem-container h2 {
+        font-size: 1.5em;
+      }
+
+      .proxima-pergunta {
+        font-size: 1em;
+        padding: 10px 20px;
+      }
+
+      .menu {
+        flex-direction: column;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .menu-icon {
+        margin-bottom: 10px;
+        font-size: 1.8em;
+        padding: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .saldo {
+        font-size: 1em;
+        padding: 8px 12px;
+      }
+
+      .pergunta select,
+      .pergunta input[type="radio"] {
+        font-size: 1em;
+        padding: 8px 10px;
+      }
+
+      .menu-icon {
+        font-size: 1.5em;
+        padding: 10px;
+      }
+
+      button {
+        font-size: 1em;
+        padding: 12px 25px;
+      }
     }
   </style>
 </head>

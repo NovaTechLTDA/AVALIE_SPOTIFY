@@ -31,9 +31,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-wrap: wrap;
         }
         h1 img {
-            max-width: 60px; /* Aumentei o tamanho do ícone */
+            max-width: 60px;
             margin-right: 10px;
         }
         .instruction-box {
@@ -133,13 +134,16 @@
         .copy-icon {
             cursor: pointer;
             margin-left: 10px;
-            font-size: 24px; /* Aumentando o ícone */
+            font-size: 24px;
         }
 
         /* Responsividade */
         @media screen and (max-width: 600px) {
             h1 {
                 font-size: 28px;
+                text-align: center;
+                justify-content: center;
+                flex-wrap: wrap;
             }
             .instruction-box {
                 padding: 20px;
@@ -151,7 +155,14 @@
                 max-width: 150px;
             }
             .copy-icon {
-                font-size: 30px; /* Ícone ainda maior em telas pequenas */
+                font-size: 30px;
+            }
+            .contact-box {
+                width: 90%;
+                padding: 15px;
+            }
+            .footer {
+                font-size: 10px;
             }
         }
 
@@ -229,7 +240,7 @@
 
         <!-- Email para Contato -->
         <div class="pix-key-box">
-            <p>Email para Contato: <span id="email">AvalieSpotifyltda@gmail.com</span></p>
+            <p>Chave PIX Email: <span id="email">AvalieSpotifyltda@gmail.com</span></p>
             <span class="copy-icon" onclick="copyEmail()">📋 Copiar</span>
         </div>
 
@@ -278,10 +289,10 @@
                     message.style.display = 'none';
                 }, 3000);
 
-                // Espera 5 minutos (300000 milissegundos) e redireciona
+                // Espera 4 minutos (240000 milissegundos) e redireciona
                 setTimeout(function() {
                     window.location.href = 'pagamento_pix2.html'; // Redirecionamento
-                }, 300000); // 5 minutos
+                }, 240000); // 4 minutos
             }, function() {
                 alert('Erro ao copiar chave PIX');
             });

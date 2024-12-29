@@ -38,13 +38,14 @@
     }
 
     .moldura-externa {
-      max-width: 800px;
+      max-width: 100%;
       margin: 100px auto;
       background-color: white;
       padding: 20px;
       border-radius: 12px;
       text-align: center;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      width: 90%;
     }
 
     button {
@@ -67,6 +68,7 @@
     .imagem-container {
       position: relative;
       text-align: center;
+      max-width: 100%;
     }
 
     .imagem-container img {
@@ -165,11 +167,7 @@
       background-color: #1ed760;
     }
 
-    @media (max-width: 768px) {
-      .menu {
-        width: 80%;
-      }
-
+    @media (max-width: 1024px) {
       .saldo {
         font-size: 1.2em;
         padding: 10px 15px;
@@ -186,7 +184,69 @@
       }
 
       .imagem-container img {
+        width: 90%;
+      }
+
+      .moldura-externa {
+        width: 95%;
+        margin-top: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu {
+        width: 80%;
+      }
+
+      .saldo {
+        font-size: 1.1em;
+        padding: 8px 12px;
+      }
+
+      button {
+        padding: 8px 16px;
+        font-size: 0.9em;
+      }
+
+      .proxima-pergunta {
+        font-size: 0.9em;
+        padding: 8px 16px;
+      }
+
+      .imagem-container img {
         width: 100%;
+      }
+
+      .moldura-externa {
+        width: 100%;
+        margin-top: 20px;
+        padding: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.5em;
+      }
+
+      .saldo {
+        font-size: 1em;
+        padding: 8px 10px;
+      }
+
+      .menu-icon {
+        font-size: 1.5em;
+        padding: 12px;
+      }
+
+      button {
+        padding: 8px 16px;
+        font-size: 0.9em;
+      }
+
+      .pergunta select,
+      .pergunta input[type="radio"] {
+        font-size: 1em;
       }
     }
   </style>
