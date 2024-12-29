@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Pagamento - AVALIESPOTIFYLTDA</title>
+    <link rel="icon" href="https://img.freepik.com/fotos-premium/logotipo-do-spotify_1080029-98.jpg?semt=ais_hybrid" type="image/png"> <!-- Favicon alterado -->
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .logo {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+        .green-text {
+            color: #00FF00;
+        }
+        .faq-box {
+            margin-top: 40px;
+        }
+        .faq-question {
+            background-color: #222;
+            padding: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .faq-content {
+            display: none;
+            padding: 10px;
+            background-color: #333;
+            margin-bottom: 10px;
+        }
+        .faq-content p {
+            margin: 0;
+        }
+        .green-box {
+            border: 2px solid #00FF00;
+            padding: 5px 10px;
+            display: inline-block;
+        }
+        .btn-green {
+            background-color: #00FF00;
+            color: #000;
+            padding: 10px 20px;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            font-weight: bold;
+        }
+        .btn-green:hover {
+            background-color: #00CC00;
+        }
+        .loading {
+            color: #00FF00;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Cabeçalho -->
+        <div class="header">
+            <img class="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuLVRq-QL4zDzfgP03saQ0LkLy6_c3Cyw32w&s" alt="Logo">
+            <h1 class="green-text">Parabéns!</h1>
+            <p class="green-text">Você está quase lá! Complete o pagamento para continuar.</p>
+            <p>Progresso: 96%</p>
+        </div>
+
+        <!-- Texto sobre a taxa -->
+        <div>
+            <p>Sua vaga está garantida para acessar o aplicativo e o saldo será debitado na sua conta. No entanto, é necessário pagar uma taxa de transferência de <span class="green-box">R$27,00</span> que nos ajuda a manter nossos servidores ativos.</p>
+        </div>
+
+        <!-- Quadrado de pagamento -->
+        <div style="border: 2px solid #fff; padding: 20px; text-align: center; margin-top: 20px;">
+            <p><strong>Após o pagamento, o saldo será debitado na conta do prezado(a). O link para download será enviado automaticamente via WhatsApp e e-mail.</strong></p>
+            <button class="btn-green" onclick="prepararPagamento()">Pagar Agora</button>
+            <div id="loadingMessage" class="loading" style="display: none;">Preparando pagamento...</div>
+        </div>
+
+        <!-- Perguntas Frequentes -->
+        <div class="faq-box">
+            <h3>Perguntas Frequentes</h3>
+            <div class="faq-question" onclick="toggleFaqContent('faq1')">1. Preciso pagar toda vez?</div>
+            <div id="faq1" class="faq-content">
+                <p><strong>Não!</strong> A taxa seria paga somente a primeira vez, para confirmar que você seria um humano, e não um robo. Você receberá o estorno do valor da taxa, após o primeiro saque!</p>
+            </div>
+
+            <div class="faq-question" onclick="toggleFaqContent('faq2')">2. Por que existe a taxa ?</div>
+            <div id="faq2" class="faq-content">
+                <p>Essa etapa serve como uma medida de segurança para evitar fraudes e abusos nos saques realizados dentro da plataforma. Contudo, não se preocupe, pois o valor da taxa será estornado juntamente com o valor do seu saque. Essa validação é apenas uma forma de garantir que a transação está sendo realizada por um usuário humano e não por um robô, visando manter a integridade e segurança do processo..</p>
+            </div>
+
+            <div class="faq-question" onclick="toggleFaqContent('faq3')">3. Quantas vezes posso sacar por dia?</div>
+            <div id="faq3" class="faq-content">
+                <p>Você tem acesso a uma quantidade ilimitada de códigos e perguntas por dia, garantindo flexibilidade e eficiência nas operações.</p>
+            </div>
+
+            <div class="faq-question" onclick="toggleFaqContent('faq4')">4. Como usa o aplicativo?</div>
+            <div id="faq4" class="faq-content">
+                <p>O processo é simples e rápido! Basta responder às perguntas sobre as empresas e os artistas em destaque no nosso Top 100, acessar o menu principal e, por fim, clicar em "Enviar Respostas". Após enviar, o pagamento será efetuado imediatamente, disponível apenas para usuários que pagaram a taxa inicial. Sua opinião é fundamental para a AVALIESPOTIFYLTDA.</p>
+            </div>
+
+            <!-- Pergunta sobre Garantia de Satisfação -->
+            <div class="faq-question" onclick="toggleFaqContent('faq5')">5. O que acontece se eu não estiver satisfeito com o serviço?</div>
+            <div id="faq5" class="faq-content">
+                <p><strong>Garantimos sua satisfação total!</strong> Caso não esteja satisfeito com seu serviço, entre em contato conosco dentro de 30 dias e devolveremos seu dinheiro. Seu feedback é muito importante para nós, e queremos garantir a melhor experiência para você.</p>
+            </div>
+
+            <!-- Pergunta sobre Selos de Confiança -->
+            <div class="faq-question" onclick="toggleFaqContent('faq6')">6. Como posso confiar que este site é seguro para fazer minha compra?</div>
+            <div id="faq6" class="faq-content">
+                <p><strong>Nosso site é monitorado e auditado regularmente</strong> por empresas de segurança de renome, como McAfee e Google. Exibimos selos de confiança, como o selo "Site Seguro", para garantir que suas transações online sejam realizadas em um ambiente protegido e seguro. Utilizamos as mais avançadas tecnologias de criptografia para garantir a privacidade e segurança de seus dados pessoais e financeiros.</p>
+            </div>
+        </div>
+
+        <!-- Política de Privacidade -->
+        <div style="margin-top: 40px; text-align: center; font-size: 12px;">
+            <p><a href="#" style="color: #00FF00;">Política de Privacidade</a></p>
+            <p><small>Essa empresa tem até 24 horas para o valor ser debitado, conforme previsto na Lei Federal 13.709/2018, que regula a proteção de dados pessoais no Brasil.</small></p>
+        </div>
+    </div>
+
+    <script>
+        function toggleFaqContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+
+        function prepararPagamento() {
+            // Exibir mensagem de "Preparando pagamento..."
+            document.getElementById("loadingMessage").style.display = "block";
+
+            // Após 2 segundos, redirecionar para a página de pagamento
+            setTimeout(function() {
+                window.location.href = "pagamento_pix3.html"; // Redirecionamento para a página de pagamento
+            }, 2000); // Delay de 2 segundos antes do redirecionamento
+        }
+    </script>
+</body>
+</html>

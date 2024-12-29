@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/018/930/693/non_2x/spotify-app-logo-spotify-icon-transparent-free-png.png" sizes="32x32" type="image/png">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -10,7 +11,6 @@
             margin: 0;
             padding: 0;
         }
-
         .saldo {
             position: fixed;
             top: 20px;
@@ -23,18 +23,15 @@
             font-weight: bold;
             cursor: pointer;
         }
-
         .saldo span {
             font-size: 1.8em;
         }
-
         header {
             background-color: #1DB954;
             color: white;
             text-align: center;
             padding: 20px;
         }
-
         .moldura-externa {
             max-width: 800px;
             margin: 100px auto;
@@ -44,7 +41,6 @@
             text-align: center;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         }
-
         button {
             background-color: #1DB954;
             color: white;
@@ -57,22 +53,17 @@
             display: inline-block;
             margin-top: 20px;
         }
-
         button:hover {
             background-color: #1ed760;
         }
-
         .imagem-container {
-            position: relative;
             text-align: center;
         }
-
         .imagem-container img {
             width: 80%;
             max-width: 500px;
             margin-top: 20px;
         }
-
         .imagem-container h2 {
             position: absolute;
             top: 10px;
@@ -83,7 +74,6 @@
             padding: 10px 20px;
             border-radius: 8px;
         }
-
         .pergunta {
             background: #fff;
             color: #333;
@@ -96,7 +86,6 @@
             margin-bottom: 20px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         }
-
         .pergunta select, .pergunta input[type="radio"] {
             background-color: #fff;
             border: 2px solid #1DB954;
@@ -108,16 +97,13 @@
             max-width: 300px;
             transition: border-color 0.3s;
         }
-
         .pergunta select:hover, .pergunta input[type="radio"]:hover {
             border-color: #ff7a00;
         }
-
         .pergunta input[type="radio"] {
             width: auto;
             margin: 0 10px;
         }
-
         .proxima-pergunta {
             position: fixed;
             right: 20px;
@@ -132,27 +118,9 @@
             transition: background-color 0.3s ease;
             display: none;
         }
-
         .proxima-pergunta:hover {
             background-color: #1ed760;
         }
-
-        .desbloquear-saque {
-            display: none;
-            background-color: #ff7a00;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 25px;
-            font-size: 1.2em;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-
-        .desbloquear-saque:hover {
-            background-color: #ff9e3d;
-        }
-
         .menu {
             position: fixed;
             bottom: 20px;
@@ -162,7 +130,6 @@
             justify-content: space-between;
             width: 60%;
         }
-
         .menu-icon {
             background-color: #1DB954;
             color: white;
@@ -172,105 +139,96 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-
         .menu-icon:hover {
             background-color: #1ed760;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>"Avalie nosso artista no Spotify e ajude a valorizar seu talento!"</h1>
-    </header>
+<header>
+    <h1>"Avalie nosso artista no Spotify e ajude a valorizar seu talento!"</h1>
+</header>
+<div class="imagem-container">
+    <h2>Avalie o mc Tutu</h2>
+    <img src="https://billboard-com-br.s3.amazonaws.com/wp-content/uploads/2024/10/30152301/MC-Tuto.webp" alt="Cantor mc Tutu">
+</div>
+<div class="saldo" onclick="mostrarBotaoSaque()">
+    <span id="saldo">R$ 84,00</span><br> Saldo Atual
+</div>
+<div class="moldura-externa">
+    <h2>Avaliação do Cantor mc Tutu</h2>
+    <form id="avaliacao-form" action="javascript:void(0);" method="get" onsubmit="atualizarSaldo(); mostrarProximaPergunta(); desabilitarEnvio(); return false;">
+        <div class="pergunta">
+            <label for="nota">De 1 a 5, qual nota você daria para as músicas do mc Tutu?</label><br>
+            <select id="nota" name="nota">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+        <div class="pergunta">
+            <label for="recomendacao">Você recomendaria o cantor mc Tutu para seus amigos , lembre-se que ele foi 3 vezes nosso cantor numero 1!?</label><br>
+            <input type="radio" id="sim" name="recomendacao" value="sim" required> 
+            <label for="sim">Sim</label>
+            <input type="radio" id="nao" name="recomendacao" value="nao" required>
+            <label for="nao">Não</label>
+        </div>
+        <div class="pergunta">
+            <label>Qual a faixa etária do público que mais escuta mc Tutu?</label><br>
+            <input type="radio" id="menor-18" name="faixa-etaria" value="menor-18" required> 
+            <label for="menor-18">Menor que 18</label>
+            <input type="radio" id="maior-18" name="faixa-etaria" value="maior-18" required> 
+            <label for="maior-18">Maior que 18</label>
+        </div>
+        <div class="valor">R$ 80,00</div>
+        <button id="submit-button" type="submit">Enviar Avaliação para nosso sistema</button>
+    </form>
+</div>
+<button class="proxima-pergunta" onclick="redirecionarParaNovaInterface()">Próxima Pergunta</button>
+<div class="menu">
+    <div class="menu-icon" onclick="window.location.href='http://localhost/avalie_spotify/';">❓</div>
+    <div class="menu-icon" onclick="window.location.href='nova_interface_em_branco.html';">💬</div>
+    <div class="menu-icon" onclick="window.location.href='interface_saque.html';">💸</div>
+</div>
 
-    <div class="imagem-container">
-        <h2>Avalie o Cantor Luan Santana</h2>
-        <img src="https://conexaoplaneta.com.br/wp-content/uploads/2020/10/o-pantanal-chama-luan-santana-apoia-movimento-sospantanal-uniaobr-foto-divulgacao3.png" alt="Cantor Luan Santana">
-    </div>
-
-    <div class="saldo" onclick="mostrarBotaoSaque()">
-        <span id="saldo">R$ 0,00</span><br> Saldo Atual
-    </div>
-
-    <button class="desbloquear-saque" onclick="mostrarSaque()">Desbloquear Saque</button>
-
-    <div class="moldura-externa">
-        <h2>Avaliação do Cantor Luan Santana</h2>
-        <form id="avaliacao-form" action="javascript:void(0);" method="get" onsubmit="atualizarSaldo(); mostrarProximaPergunta(); return false;">
-            <div class="pergunta">
-                <label for="nota">De 1 a 5, qual nota você daria para as músicas do Luan Santana?</label><br>
-                <select id="nota" name="nota">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-            </div>
-
-            <div class="pergunta">
-                <label for="recomendacao">Você recomendaria o cantor Luan Santana para seus amigos?</label><br>
-                <input type="radio" id="sim" name="recomendacao" value="sim" required>
-                <label for="sim">Sim</label>
-                <input type="radio" id="nao" name="recomendacao" value="nao" required>
-                <label for="nao">Não</label>
-            </div>
-
-            <div class="pergunta">
-                <label>Qual a faixa etária do público que mais escuta Luan Santana?</label><br>
-                <input type="radio" id="menor-18" name="faixa-etaria" value="menor-18" required>
-                <label for="menor-18">Menor que 18</label>
-                <input type="radio" id="maior-18" name="faixa-etaria" value="maior-18" required>
-                <label for="maior-18">Maior que 18</label>
-            </div>
-
-            <div class="valor">R$ 52,00</div>
-            <button type="submit">Enviar Avaliação para nosso sistema</button>
-        </form>
-    </div>
-
-    <button class="proxima-pergunta" onclick="redirecionarParaNovaInterface()">Próxima Pergunta</button>
-
-    <div class="menu">
-        <div class="menu-icon" onclick="window.location.href='http://localhost/avalie_spotify/';">❓</div>
-        <div class="menu-icon" onclick="window.location.href='nova_interface_em_branco.html';">💬</div>
-        <div class="menu-icon" onclick="window.location.href='interface_saque.html';">💸</div>
-    </div>
-
-    <script>
-        // Atualiza o saldo com o valor armazenado
-        window.onload = function() {
-            const saldo = localStorage.getItem('saldo');
-            if (saldo) {
-                document.getElementById('saldo').innerText = 'R$ ' + parseFloat(saldo).toFixed(2);
-            }
+<script>
+    window.onload = function() {
+        const saldo = localStorage.getItem('saldo');
+        if (saldo) {
+            document.getElementById('saldo').innerText = 'R$ ' + parseFloat(saldo).toFixed(2);
         }
+    }
 
-        function atualizarSaldo() {
-            const saldoElement = document.getElementById('saldo');
-            let saldoAtual = parseFloat(saldoElement.innerText.replace('R$', '').trim());
-            saldoAtual += 52.00; // Acrescenta R$ 52,00 pela avaliação
-            saldoElement.innerText = 'R$ ' + saldoAtual.toFixed(2);
+    function atualizarSaldo() {
+        const saldoElement = document.getElementById('saldo');
+        let saldoAtual = parseFloat(saldoElement.innerText.replace('R$', '').trim());
+        saldoAtual += 84.00; // Acrescenta R$ 80,00 pela avaliação
+        saldoElement.innerText = 'R$ ' + saldoAtual.toFixed(2);
+        localStorage.setItem('saldo', saldoAtual);
+    }
 
-            // Atualiza o saldo no localStorage
-            localStorage.setItem('saldo', saldoAtual);
-        }
+    function mostrarProximaPergunta() {
+        document.querySelector('.proxima-pergunta').style.display = 'block';
+    }
 
-        function mostrarProximaPergunta() {
-            document.querySelector('.proxima-pergunta').style.display = 'block';
-        }
+    function redirecionarParaNovaInterface() {
+        window.location.href = 'proxima_pergunta.html';
+    }
 
-        function redirecionarParaNovaInterface() {
-            window.location.href = 'nova_interface_em_branco.html';  // Página vazia para você adicionar o que quiser
-        }
+    function mostrarBotaoSaque() {
+        document.querySelector('.desbloquear-saque').style.display = 'block';
+    }
 
-        function mostrarBotaoSaque() {
-            document.querySelector('.desbloquear-saque').style.display = 'block';
-        }
+    function mostrarSaque() {
+        alert("Saque desbloqueado!");
+    }
 
-        function mostrarSaque() {
-            alert("Saque desbloqueado!");
-        }
-    </script>
+    function desabilitarEnvio() {
+        document.getElementById('submit-button').disabled = true;
+        document.getElementById('submit-button').innerText = 'Avaliação Enviada';
+    }
+</script>
 </body>
 </html>

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inserir Email</title>
+    <!-- Alteração do ícone da página -->
+    <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/018/930/693/non_2x/spotify-app-logo-spotify-icon-transparent-free-png.png" type="image/png">
     <style>
         /* Configurações Globais */
         body {
@@ -125,8 +127,8 @@
     <div class="container">
         <div class="form-box">
             <div class="spotify-logo">
-                <!-- Novo ícone do Spotify maior e mais largo -->
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRF4i2h_y9d6x6SR8ozro3iSxCMrF48ibbBIw&s" alt="Spotify Logo">
+                <!-- Ícone do Spotify atualizado -->
+                <img src="https://static.vecteezy.com/system/resources/previews/018/930/693/non_2x/spotify-app-logo-spotify-icon-transparent-free-png.png" alt="Spotify Logo">
             </div>
             <h1>Bem-vindo(a) ao SpotifyOpina</h1>
             <h2>Insira seu email para prosseguir</h2>

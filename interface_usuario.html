@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Definindo o ícone da página -->
+    <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/018/930/693/non_2x/spotify-app-logo-spotify-icon-transparent-free-png.png" type="image/png">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -159,6 +161,14 @@
             font-size: 2em;
             cursor: pointer;
             transition: background-color 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .menu-icon img {
+            width: 30px; /* Ajusta o tamanho do ícone */
+            height: 30px;
         }
 
         .menu-icon:hover {
@@ -259,7 +269,9 @@
 
 <!-- Menu com ícones -->
 <div class="menu">
-    <div class="menu-icon" onclick="window.location.href='http://localhost/avalie_spotify/';">❓</div>
+    <div class="menu-icon" onclick="window.location.href='http://localhost/avalie_spotify/';">
+        <img src="https://static.vecteezy.com/system/resources/previews/018/930/693/non_2x/spotify-app-logo-spotify-icon-transparent-free-png.png" alt="Spotify Icon">
+    </div>
     <div class="menu-icon" onclick="window.location.href='nova_interface.html';">💬</div>
     <div class="menu-icon" onclick="window.location.href='interface_saque.html';">💸</div>
 </div>
@@ -281,27 +293,21 @@
     function mostrarBotaoSaque() {
         const saldo = parseFloat(document.getElementById('saldo').textContent.replace('R$ ', '').replace(',', '.'));
         if (saldo >= 32) {
-            document.querySelector('.desbloquear-saque').style.display = 'block';
+            document.querySelector('.desbloquear-saque').style.display = 'inline-block';
         }
     }
 
     function mostrarSaque() {
-        alert('Você desbloqueou o saque!');
+        alert('Saque desbloqueado!');
     }
 
     function mostrarProximaPergunta() {
-        // Exibe o botão de próxima pergunta
         document.querySelector('.proxima-pergunta').style.display = 'inline-block';
     }
 
     function redirecionarParaNovaInterface() {
-        // Redireciona para outra interface e passa o saldo
-        const saldo = localStorage.getItem('saldo');
-        if (saldo) {
-            window.location.href = "nova_interface.html?saldo=" + saldo;
-        }
+        window.location.href = 'nova_interface.html';
     }
 </script>
-
 </body>
 </html>

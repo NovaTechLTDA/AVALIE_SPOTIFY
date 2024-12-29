@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avaliação Spotify</title>
+  <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/018/930/693/non_2x/spotify-app-logo-spotify-icon-transparent-free-png.png" type="image/png">
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -232,14 +234,14 @@
     }
 
     function atualizarSaldo() {
-      if (avaliacaoEnviada) return;  // Impede o envio múltiplo
+      if (avaliacaoEnviada) return;
 
       const saldoElement = document.getElementById('saldo');
       let saldoAtual = parseFloat(saldoElement.innerText.replace('R$', '').trim());
-      saldoAtual += 52.00; // Acrescenta R$ 52,00 pela avaliação
+      saldoAtual += 52.00;
       saldoElement.innerText = 'R$ ' + saldoAtual.toFixed(2);
       localStorage.setItem('saldo', saldoAtual);
-      avaliacaoEnviada = true;  // Marca a avaliação como enviada
+      avaliacaoEnviada = true;
     }
 
     function mostrarProximaPergunta() {
@@ -251,15 +253,11 @@
     }
 
     function redirecionarParaNovaInterface() {
-      window.location.href = 'proxima_pergunta_2.html'; // Página nova
+      window.location.href = 'proxima_pergunta_2.html';
     }
 
     function mostrarBotaoSaque() {
       document.querySelector('.desbloquear-saque').style.display = 'block';
-    }
-
-    function mostrarSaque() {
-      alert("Saque desbloqueado!");
     }
   </script>
 </body>

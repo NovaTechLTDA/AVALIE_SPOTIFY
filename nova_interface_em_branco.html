@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/018/930/693/non_2x/spotify-app-logo-spotify-icon-transparent-free-png.png" type="image/png" sizes="32x32">
+    <title>Avaliação Spotify</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -168,7 +170,7 @@
             </select>
         </div>
         <div class="pergunta">
-            <label for="recomendacao">Você recomendaria o cantor mc Tutu para seus amigos , lembre-se que ele foi 3 vezes nosso cantor numero 1!?</label><br>
+            <label for="recomendacao">Você recomendaria o cantor mc Tutu para seus amigos?</label><br>
             <input type="radio" id="sim" name="recomendacao" value="sim" required> 
             <label for="sim">Sim</label>
             <input type="radio" id="nao" name="recomendacao" value="nao" required>
@@ -181,7 +183,6 @@
             <input type="radio" id="maior-18" name="faixa-etaria" value="maior-18" required> 
             <label for="maior-18">Maior que 18</label>
         </div>
-        <div class="valor">R$ 80,00</div>
         <button id="submit-button" type="submit">Enviar Avaliação para nosso sistema</button>
     </form>
 </div>
@@ -193,7 +194,6 @@
 </div>
 
 <script>
-    // Atualiza o saldo com o valor armazenado
     window.onload = function() {
         const saldo = localStorage.getItem('saldo');
         if (saldo) {
@@ -204,9 +204,8 @@
     function atualizarSaldo() {
         const saldoElement = document.getElementById('saldo');
         let saldoAtual = parseFloat(saldoElement.innerText.replace('R$', '').trim());
-        saldoAtual += 84.00; // Acrescenta R$ 80,00 pela avaliação
+        saldoAtual += 84.00;
         saldoElement.innerText = 'R$ ' + saldoAtual.toFixed(2);
-        // Atualiza o saldo no localStorage
         localStorage.setItem('saldo', saldoAtual);
     }
 
@@ -215,19 +214,14 @@
     }
 
     function redirecionarParaNovaInterface() {
-        window.location.href = 'proxima_pergunta.html'; // Nova interface "Proxima Pergunta"
+        window.location.href = 'proxima_pergunta.html';
     }
 
     function mostrarBotaoSaque() {
-        document.querySelector('.desbloquear-saque').style.display = 'block';
-    }
-
-    function mostrarSaque() {
         alert("Saque desbloqueado!");
     }
 
     function desabilitarEnvio() {
-        // Desabilita o botão de envio após o envio da avaliação
         document.getElementById('submit-button').disabled = true;
         document.getElementById('submit-button').innerText = 'Avaliação Enviada';
     }

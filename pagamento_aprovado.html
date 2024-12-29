@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento Aprovado</title>
+    <!-- Favicon -->
+    <link rel="icon" href="https://i.pinimg.com/1200x/e0/0a/51/e00a51aa099c1aa4794d01da097846ff.jpg" type="image/x-icon">
+    <style>
+        body {
+            background-color: black;
+            color: green;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+
+        img {
+            max-width: 300px; /* Aumentando o ícone de sucesso */
+            margin-top: 40px; /* Subindo o ícone */
+        }
+
+        .container {
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid green;
+            width: 80%;
+            max-width: 600px;
+            background-color: black;
+            color: green;
+            margin-top: 30px;
+        }
+
+        .info-box {
+            background-color: #333;
+            border: 1px solid green;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        .info-box p {
+            font-size: 18px;
+        }
+
+        .info-box .link {
+            color: #00FF00;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .info-box .denounce {
+            color: red;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ícone de Sucesso na tela -->
+    <img src="https://i.pinimg.com/1200x/e0/0a/51/e00a51aa099c1aa4794d01da097846ff.jpg" alt="Ícone de Sucesso">
+    
+    <!-- Mensagem de Sucesso -->
+    <div class="container">
+        <h1>Pagamento Aprovado</h1>
+        <p>O pagamento foi aprovado com sucesso. O valor será debitado na conta do(a) destinatário(a) no prazo máximo de 24 horas.</p>
+    </div>
+
+    <!-- Novo quadradinho com informações sobre o link -->
+    <div class="info-box">
+        <p><span>Compartilhe o link abaixo e ganhe R$ 20,00 para cada email inserido! Suas avaliações são importantes para nós:</span></p>
+        <p class="link" onclick="window.open('http://localhost/avalie_spotify/', '_blank')">http://localhost/avalie_spotify/</p>
+        <p class="denounce" onclick="window.location.href='reclame_aqui.html'">Denunciar</p>
+    </div>
+
+</body>
+</html>

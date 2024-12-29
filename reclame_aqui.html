@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reclame Aqui</title>
+
+    <!-- Favicon (ícone na barra de pesquisa do navegador) -->
+    <link rel="icon" href="https://digitalks.com.br/wp-content/uploads/gravity_forms/1-eff459ab3cc4a9894ca178fb784a528a/2018/01/Digitalks-Capa-850X275-02.png" type="image/png">
+
+    <style>
+        body {
+            background-color: white;
+            color: green;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-top: 20px;
+        }
+
+        .container {
+            padding: 30px;
+            border-radius: 10px;
+            border: 2px solid green;
+            width: 80%;
+            max-width: 600px;
+            background-color: white;
+            color: green;
+            margin-top: 30px;
+        }
+
+        .icon {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .message {
+            font-size: 18px;
+            margin-top: 20px;
+            color: green;
+        }
+
+        .email-section {
+            margin-top: 20px;
+        }
+
+        .email-input {
+            padding: 10px;
+            width: 80%;
+            font-size: 16px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid green;
+        }
+
+        .submit-btn {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background-color: darkgreen;
+        }
+
+        .rating {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+
+        .stars {
+            color: gold;
+            font-size: 28px;
+        }
+
+        .denounce {
+            color: red;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .denounce-message {
+            display: none;
+            font-size: 18px;
+            color: red;
+            margin-top: 30px;
+        }
+
+        .denounce-message img {
+            max-width: 150px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ícone do Reclame Aqui -->
+    <img class="icon" src="https://e7.pngegg.com/pngimages/118/403/png-clipart-reclame-aqui-logo-consumer-brand-others-angle-text.png" alt="Reclame Aqui">
+
+    <!-- Formulário de Reclamação -->
+    <div class="container">
+        <h1>Reclame Aqui</h1>
+        <p class="message">Se você tiver algum problema ou insatisfação, por favor, escreva sua reclamação abaixo. A sua opinião é muito importante para nós e vamos tomar as devidas providências no menor tempo possível.</p>
+
+        <!-- Campo para Email -->
+        <div class="email-section">
+            <input class="email-input" type="email" placeholder="Digite seu email" required>
+        </div>
+
+        <!-- Área para mensagem de reclamação -->
+        <textarea class="email-input" placeholder="Escreva sua reclamação aqui..." rows="5" required></textarea>
+
+        <!-- Botão para enviar -->
+        <button class="submit-btn" onclick="sendMessage()">Enviar Reclamação</button>
+
+        <!-- Mensagem após envio -->
+        <p id="response-message" class="message" style="display: none;">Sua mensagem foi enviada com sucesso. Respeitamos sua crítica e ela é muito importante para nós. Vamos tomar a devida providência o mais rápido possível.</p>
+
+        <!-- Sistema de Avaliação por Estrelas -->
+        <div class="rating">
+            <p>Avalie nosso atendimento:</p>
+            <div class="stars">
+                <span onclick="rate(1)">★</span>
+                <span onclick="rate(2)">★</span>
+                <span onclick="rate(3)">★</span>
+                <span onclick="rate(4)">★</span>
+                <span onclick="rate(5)">★</span>
+            </div>
+        </div>
+
+        <!-- Denunciar -->
+        <p class="denounce" onclick="showDenounceMessage()">Denunciar</p>
+
+        <!-- Mensagem de denúncia -->
+        <div id="denounce-message" class="denounce-message">
+            <p>"Sua mensagem foi enviada com sucesso para o Reclame Aqui! Esse é um site onde todas as empresas que possuem práticas enganosas, fraudes e golpes são expostas por meio de avaliações e comentários. A sua crítica será cuidadosamente analisada para que possamos tomar as devidas providências. Agradecemos pela sua colaboração, pois ela é essencial para manter a transparência e proteger outros consumidores."</p>
+            <img src="https://e7.pngegg.com/pngimages/118/403/png-clipart-reclame-aqui-logo-consumer-brand-others-angle-text.png" alt="Logo Reclame Aqui">
+        </div>
+    </div>
+
+    <script>
+        // Função de envio de mensagem
+        function sendMessage() {
+            const message = document.querySelector("textarea").value;
+            const email = document.querySelector("input[type='email']").value;
+
+            if (message && email) {
+                document.getElementById('response-message').style.display = 'block';
+            }
+        }
+
+        // Função para seleção de estrelas
+        function rate(stars) {
+            const starsElements = document.querySelectorAll('.stars span');
+            starsElements.forEach((star, index) => {
+                if (index < stars) {
+                    star.style.color = 'gold';
+                } else {
+                    star.style.color = 'gray';
+                }
+            });
+        }
+
+        // Função para exibir mensagem de denúncia
+        function showDenounceMessage() {
+            document.getElementById('denounce-message').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
