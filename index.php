@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inserir Email</title>
     <!-- Alteração do ícone da página -->
-    <link rel="icon" href="https://logospng.org/wp-content/uploads/spotify.png" type="image/png">
+    <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/018/930/693/non_2x/spotify-app-logo-spotify-icon-transparent-free-png.png" type="image/png">
     <style>
         /* Configurações Globais */
         body {
@@ -127,8 +127,8 @@
     <div class="container">
         <div class="form-box">
             <div class="spotify-logo">
-                <!-- Novo Ícone do Spotify -->
-                <img src="https://logospng.org/wp-content/uploads/spotify.png" alt="Spotify Logo">
+                <!-- Ícone do Spotify atualizado -->
+                <img src="https://static.vecteezy.com/system/resources/previews/018/930/693/non_2x/spotify-app-logo-spotify-icon-transparent-free-png.png" alt="Spotify Logo">
             </div>
             <h1>Bem-vindo(a) ao SpotifyOpina</h1>
             <h2>Insira seu email para prosseguir</h2>
