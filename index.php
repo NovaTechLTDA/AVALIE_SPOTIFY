@@ -132,8 +132,8 @@
             </div>
             <h1>Bem-vindo(a) ao SpotifyOpina</h1>
             <h2>Insira seu email para prosseguir</h2>
-            <form action="interface_usuario.html" method="POST">
-                <input type="email" name="email" placeholder="Digite seu email" required>
+            <form id="emailForm">
+                <input type="email" id="email" placeholder="Digite seu email" required>
                 <button type="submit">Continuar</button>
             </form>
         </div>
@@ -143,5 +143,20 @@
     <div class="footer">
         <p>© 2025 Spotify LCC | <a href="#">Termos</a> | <a href="politica_privacidade.html" target="_blank">Política de Privacidade</a></p>
     </div>
+
+    <script>
+        // Adiciona comportamento ao formulário com JavaScript
+        document.getElementById('emailForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Evita o comportamento padrão de envio do formulário
+
+            const email = document.getElementById('email').value;
+            if (email) {
+                alert(`Obrigado! Email "${email}" recebido com sucesso.`);
+                window.location.href = 'interface_usuario.html'; // Redireciona para a próxima página
+            } else {
+                alert('Por favor, insira um email válido.');
+            }
+        });
+    </script>
 </body>
 </html>

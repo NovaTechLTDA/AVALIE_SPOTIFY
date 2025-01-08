@@ -237,7 +237,7 @@
     </div>
     <div class="moldura-externa">
         <h2>Avaliação do Cantor mc Tutu</h2>
-        <form id="avaliacao-form" action="javascript:void(0);" method="get" onsubmit="atualizarSaldo(); mostrarProximaPergunta(); desabilitarEnvio(); return false;">
+        <form id="avaliacao-form" onsubmit="atualizarSaldo(); mostrarProximaPergunta(); desabilitarEnvio(); return false;">
             <div class="pergunta">
                 <label for="nota">De 1 a 5, qual nota você daria para as músicas do mc Tutu?</label><br>
                 <select id="nota" name="nota">
@@ -267,7 +267,7 @@
     </div>
     <button class="proxima-pergunta" onclick="redirecionarParaNovaInterface()">Próxima Pergunta</button>
     <div class="menu">
-        <div class="menu-icon" onclick="window.location.href='http://localhost/avalie_spotify/';">❓</div>
+        <div class="menu-icon" onclick="window.location.href='index.html';">❓</div>
         <div class="menu-icon" onclick="window.location.href='nova_interface_em_branco.html';">💬</div>
         <div class="menu-icon" onclick="window.location.href='interface_saque.html';">💸</div>
     </div>
@@ -294,7 +294,7 @@
     }
 
     function redirecionarParaNovaInterface() {
-        window.location.href = 'proxima_pergunta.html';
+        window.location.href = 'http://localhost/avalie_spotify/nova_interface.html';
     }
 
     function mostrarBotaoSaque() {

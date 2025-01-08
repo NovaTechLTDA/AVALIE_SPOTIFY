@@ -173,16 +173,58 @@
         }
 
         /* Responsividade */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.5em;
+        @media (max-width: 1024px) {
+            .saldo {
+                top: 15px;
+                right: 15px;
+                font-size: 1.3em;
+                padding: 10px 15px;
             }
 
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .moldura-externa {
+                margin-top: 30px;
+                padding: 15px;
+            }
+
+            .pergunta select, .pergunta input[type="radio"] {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .imagem-container img {
+                max-width: 80%;
+            }
+
+            .menu {
+                width: 90%;
+            }
+
+            .menu-icon {
+                font-size: 1.8em;
+                padding: 12px;
+            }
+
+            button {
+                width: 100%;
+                font-size: 1.1em;
+                padding: 12px 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
             .saldo {
                 top: 10px;
                 right: 10px;
                 font-size: 1.2em;
                 padding: 10px 15px;
+            }
+
+            header h1 {
+                font-size: 1.5em;
             }
 
             .moldura-externa {

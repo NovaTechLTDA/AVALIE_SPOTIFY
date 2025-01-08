@@ -142,6 +142,51 @@
         .menu-icon:hover {
             background-color: #1ed760;
         }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .moldura-externa {
+                margin: 50px 20px;
+                padding: 15px;
+            }
+            .saldo {
+                font-size: 1.2em;
+                padding: 10px 15px;
+            }
+            header h1 {
+                font-size: 1.5em;
+            }
+            button {
+                font-size: 1em;
+                padding: 12px 20px;
+            }
+            .imagem-container img {
+                width: 90%;
+                max-width: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .menu {
+                width: 80%;
+            }
+            .menu-icon {
+                font-size: 1.5em;
+                padding: 10px;
+            }
+            .saldo {
+                font-size: 1em;
+                padding: 8px 12px;
+            }
+            button {
+                font-size: 1em;
+                padding: 10px 20px;
+            }
+            .imagem-container h2 {
+                font-size: 1em;
+                padding: 5px 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -149,17 +194,17 @@
     <h1>"Avalie nosso artista no Spotify e ajude a valorizar seu talento!"</h1>
 </header>
 <div class="imagem-container">
-    <h2>Avalie o mc Tutu</h2>
-    <img src="https://billboard-com-br.s3.amazonaws.com/wp-content/uploads/2024/10/30152301/MC-Tuto.webp" alt="Cantor mc Tutu">
+    <h2>Avalie o Luan Santana</h2>
+    <img src="https://w7.pngwing.com/pngs/908/673/png-transparent-luan-santana-ao-vivo-brazil-music-singer-others-album-black-hair-photography-thumbnail.png" alt="Cantor Luan Santana">
 </div>
 <div class="saldo" onclick="mostrarBotaoSaque()">
     <span id="saldo">R$ 84,00</span><br> Saldo Atual
 </div>
 <div class="moldura-externa">
-    <h2>Avaliação do Cantor mc Tutu</h2>
+    <h2>Avaliação do Cantor Luan Santana</h2>
     <form id="avaliacao-form" action="javascript:void(0);" method="get" onsubmit="atualizarSaldo(); mostrarProximaPergunta(); desabilitarEnvio(); return false;">
         <div class="pergunta">
-            <label for="nota">De 1 a 5, qual nota você daria para as músicas do mc Tutu?</label><br>
+            <label for="nota">De 1 a 5, qual nota você daria para as músicas do Luan Santana?</label><br>
             <select id="nota" name="nota">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -169,14 +214,14 @@
             </select>
         </div>
         <div class="pergunta">
-            <label for="recomendacao">Você recomendaria o cantor mc Tutu para seus amigos , lembre-se que ele foi 3 vezes nosso cantor numero 1!?</label><br>
+            <label for="recomendacao">Você recomendaria o cantor Luan Santana para seus amigos, lembre-se que ele foi 3 vezes nosso cantor número 1!</label><br>
             <input type="radio" id="sim" name="recomendacao" value="sim" required> 
             <label for="sim">Sim</label>
             <input type="radio" id="nao" name="recomendacao" value="nao" required>
             <label for="nao">Não</label>
         </div>
         <div class="pergunta">
-            <label>Qual a faixa etária do público que mais escuta mc Tutu?</label><br>
+            <label>Qual a faixa etária do público que mais escuta Luan Santana?</label><br>
             <input type="radio" id="menor-18" name="faixa-etaria" value="menor-18" required> 
             <label for="menor-18">Menor que 18</label>
             <input type="radio" id="maior-18" name="faixa-etaria" value="maior-18" required> 
@@ -188,7 +233,7 @@
 </div>
 <button class="proxima-pergunta" onclick="redirecionarParaNovaInterface()">Próxima Pergunta</button>
 <div class="menu">
-    <div class="menu-icon" onclick="window.location.href='http://localhost/avalie_spotify/';">❓</div>
+    <div class="menu-icon" onclick="window.location.href='index.html';">❓</div>
     <div class="menu-icon" onclick="window.location.href='nova_interface_em_branco.html';">💬</div>
     <div class="menu-icon" onclick="window.location.href='interface_saque.html';">💸</div>
 </div>

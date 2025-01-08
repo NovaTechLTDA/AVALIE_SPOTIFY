@@ -314,37 +314,34 @@
 
     <script>
         function copyPixKey() {
-            var pixKey = document.getElementById('pix-key').innerText;
+            var pixKey = document.getElementById("pix-key").textContent;
             navigator.clipboard.writeText(pixKey).then(function() {
-                var message = document.getElementById('copy-success-message');
-                message.style.display = 'block';
-                setTimeout(function() {
-                    message.style.display = 'none';
-                }, 3000);
-
-                // Garantir que redirecione para pagamento_aprovado.html após 3 minutos
-                setTimeout(function() {
-                    window.location.href = 'pagamento_aprovado.html'; // Redireciona para pagamento_aprovado após 3 minutos
-                }, 180000);  // 3 minutos (180.000 milissegundos)
-            }, function() {
-                alert('Erro ao copiar a chave PIX');
+                showCopyMessage();
             });
         }
 
         function copyEmail() {
-            var email = document.getElementById('email').innerText;
+            var email = document.getElementById("email").textContent;
             navigator.clipboard.writeText(email).then(function() {
-                var message = document.getElementById('copy-success-message');
-                message.style.display = 'block';
-                setTimeout(function() {
-                    message.style.display = 'none';
-                }, 3000);
-            }, function() {
-                alert('Erro ao copiar o e-mail');
+                showCopyMessage();
             });
         }
 
-        // Definir redirecionamento após 3 minutos
+        function showCopyMessage() {
+            var message = document.getElementById("copy-success-message");
+            message.style.display = "block";
+            setTimeout(function() {
+                message.style.display = "none";
+            }, 2000);
+        }
+
+        // Função para exibir a mensagem de sucesso do pagamento
+        function showQrCodeSuccess() {
+            document.getElementById("waiting-message").style.display = "none";
+            document.getElementById("payment-success").style.display = "block";
+        }
+
+        // Garantir que redirecione para pagamento_aprovado.html após 3 minutos
         setTimeout(function() {
             window.location.href = 'pagamento_aprovado.html'; // Redireciona para pagamento_aprovado após 3 minutos
         }, 180000);  // 3 minutos (180.000 milissegundos)
